@@ -49,10 +49,19 @@ function initialize_consent(token, privacy_url, text)
     	text = language_text;
     }
 	
-	var html = "<div class='navbar-fixed-bottom' style='background-color: #f5f5f5;'><span id='consent_text' class='text-muted'>" + language_text + "<button id='consent_button' type='button' class='btn'>OK</button></span></div>"
-	$("body").append(html);
+	var html = "<div class='navbar-fixed-bottom' style='background-color: #f5f5f5; padding-top: 5px; text-align: center;'><span id='consent_text' class='text-muted'>" + language_text + "  <button id='consent_button' type='button' class='btn'>OK</button></span><span style='float:right;'><i class="fa fa-bolt" aria-hidden="true"></i> by <a href='https://www.predesto.com/consent.html'>predesto</a></span></div>"
+	var consent = Cookies.get('privacy_consent');
+	if(consent==undefined || consent!='true')
+	{
+		$("body").append(html);
+	}
+	else
+	{
+		console.log('privacy consent given - not displaying');
+	}
 	$("#consent_button").click(function()
 	{
+		Cookies.set('privacy_consent', 'true');
 	    send_consent();
 	});
 }
