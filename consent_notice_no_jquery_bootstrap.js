@@ -74,7 +74,6 @@ function send_consent()
 		{
 	    type: "POST",
 	    url: "https://api.predesto.com/cookie_consent_log",
-	    headers: {'Authorization': 'Bearer ' + access_token},
 	    contentType: 'application/json',
 	    dataType: 'json',
 	    data: JSON.stringify({
