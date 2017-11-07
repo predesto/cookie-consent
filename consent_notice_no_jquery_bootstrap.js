@@ -1,7 +1,7 @@
 $('head').append('<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">');
-function initialize_consent(token, privacy_url, text)
+function initialize_consent(key, privacy_url, text)
 {
-	localStorage.setItem('consent_token', token);
+	localStorage.setItem('consent_key', key);
 	var language_text = "";
 
 	var language = navigator.languages && navigator.languages[0] || // Chrome / Firefox
@@ -67,8 +67,8 @@ function initialize_consent(token, privacy_url, text)
 }
 function send_consent()
 {
-	var access_token = localStorage.getItem('consent_token');
-	if(access_token!=null)
+	var key = localStorage.getItem('consent_key');
+	if(key!=null)
 	{
 		$.ajax(
 		{
@@ -77,9 +77,7 @@ function send_consent()
 	    contentType: 'application/json',
 	    dataType: 'json',
 	    data: JSON.stringify({
-		    "Record": {
-		        "Data": new Date().getTime() / 1000
-		    }
+		    "key": key
 		}),
 	    }).done(function(result)
 	    {
