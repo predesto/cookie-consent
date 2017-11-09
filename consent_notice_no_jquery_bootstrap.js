@@ -1,4 +1,4 @@
-$('head').append('<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">');
+$('head').append('<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">');; 
 function initialize_consent(key, privacy_url, text)
 {
 	localStorage.setItem('consent_key', key);
@@ -49,7 +49,7 @@ function initialize_consent(key, privacy_url, text)
     	text = language_text;
     }
 	
-	var html = "<div class='navbar-fixed-bottom' style='background-color: #f5f5f5; padding-top: 5px; text-align: center;'><span id='consent_text' class='text-muted'>" + language_text + "  <button id='consent_button' type='button' class='btn'>OK</button></span><span style='float:right;'><i class='fa fa-bolt' aria-hidden='true'></i> by <a href='https://www.predesto.com/consent.html'>predesto</a></span></div>"
+	var html = "<div class='navbar-fixed-bottom' style='background-color: #f5f5f5; padding-top: 5px; text-align: center; position:fixed; bottom:0px; width: 100%;'><span id='consent_text' class='text-muted'>" + language_text + "  <button id='consent_button' type='button' class='btn'>OK</button></span><span style='float:right;'><i class='fa fa-bolt' aria-hidden='true'></i> by <a href='https://www.predesto.com/consent.html'>predesto</a></span></div>"
 	var consent = Cookies.get('privacy_consent');
 	if(consent==undefined || consent!='true')
 	{
@@ -73,7 +73,7 @@ function send_consent()
 		$.ajax(
 		{
 	    type: "POST",
-	    url: "https://api.predesto.com/cookie_consent_log",
+	    url: "https://consent.predesto.com/prod/events/log_cookie_consent",
 	    contentType: 'application/json',
 	    dataType: 'json',
 	    data: JSON.stringify({
