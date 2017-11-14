@@ -73,7 +73,7 @@ function send_consent()
 		$.ajax(
 		{
 	    type: "POST",
-	    url: "https://consent.predesto.com/cookies/events/log_cookie_consent",
+	    url: "https://consent.predesto.com/cookies/log_cookie_consent",
 	    contentType: 'application/json',
 	    dataType: 'json',
 	    data: JSON.stringify({
