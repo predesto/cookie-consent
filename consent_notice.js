@@ -53,7 +53,7 @@ function initialize_consent(key, privacy_url, text)
     	text = language_text;
     }
 
-	var html = "<div id='consent-wrapper' style='background-color: #f5f5f5; padding-top: 5px; text-align: center; position:fixed; bottom:0px; width: 100%;'><span id='consent_text' style='font-size: 14px; color: #777; text-align: center;'>" + language_text + "  <button id='consent_button' style='background-color: #4CAF50; border: none; color: white; padding: 2px 15px; margin: 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; border-radius: 8px;'>OK</button></span><span style='margin-left: 5%; font-size: 14px; color: #777;'><img src='https://cdn.jsdelivr.net/gh/predesto/cookie-consent@12/bolt.svg' style='height: 16px; width: 16px;'> by <a href='https://www.predesto.com/consent'>predesto</a></span></div>"
+	var html = "<div id='consent-wrapper' style='background-color: #f5f5f5; padding-top: 5px; text-align: center; position:fixed; bottom:0px; width: 100%;'><span id='consent_text' style='font-size: 14px; color: #777; text-align: center;'>" + language_text + "  <button id='consent_button' style='background-color: #4CAF50; border: none; color: white; padding: 6px 15px; margin-bottom: 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; border-radius: 8px;'>OK</button></span><span style='margin-left: 5%; font-size: 14px; color: #777;'><img src='https://cdn.jsdelivr.net/gh/predesto/cookie-consent@12/bolt.svg' style='height: 14px; width: 14px;'> by <a href='https://www.predesto.com/consent'>predesto</a></span></div>"
 
 	var consent = Cookies.get('privacy_consent');
 	if(consent==undefined || consent!='true')
